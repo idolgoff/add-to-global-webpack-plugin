@@ -1,6 +1,6 @@
 {
     "name": "add-to-global-webpack-plugin",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "description": "Use AddToGlobalWebpackPlugin to inject global variables into your app from your Webpack config. Ideal for setting up global configs, not sensitive API keys, or feature flags.",
     "main": "index.js",
     "scripts": {
