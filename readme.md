@@ -1,6 +1,6 @@
-# AddToWindowPlugin for Webpack
+# AddToGlobalPlugin for Webpack
 
-The `AddToWindowPlugin` is a Webpack plugin designed to enhance your application by allowing you to inject global variables into the `window` object directly from your Webpack configuration. This can be particularly useful for storing some usefull meta information such as app versions, CI/CD process details, build date and time, for setting up global configurations, API keys, or feature flags.
+The `AddToGlobalPlugin` is a Webpack plugin designed to enhance your application by allowing you to inject global variables into the `window` or `global` object directly from your Webpack configuration. This can be particularly useful for storing some usefull meta information such as app versions, CI/CD process details, build date and time, for setting up global configurations, API keys, or feature flags.
 
 ## Advantages
 
@@ -11,14 +11,14 @@ The `AddToWindowPlugin` is a Webpack plugin designed to enhance your application
 
 ## Installation
 
-To install the `AddToWindowPlugin`, you can simply copy the plugin code into a file in your project, typically named `AddToWindowPlugin.js`.
+To install the `AddToGlobalPlugin`, you can simply copy the plugin code into a file in your project, typically named `AddToGlobalPlugin.js`.
 
 ## Usage
 
 First, import the plugin at the top of your Webpack configuration file:
 
 ```javascript
-const AddToWindowPlugin = require("./path/to/AddToWindowPlugin");
+const AddToGlobalPlugin = require("./path/to/AddToGlobalPlugin");
 ```
 
 Then, add the plugin to your Webpack configuration:
@@ -27,7 +27,7 @@ Then, add the plugin to your Webpack configuration:
 module.exports = {
     // ... other webpack config
     plugins: [
-        new AddToWindowPlugin({
+        new AddToGlobalPlugin({
             path: "myApp.meta",
             value: {
                 version: "v1.1.3.7684",
@@ -46,7 +46,7 @@ This configuration will inject your value into `window.myApp.meta`.
 Here’s an example of how to use the plugin to inject a nested configuration object into the window object:
 
 ```javascript
-new AddToWindowPlugin({
+new AddToGlobalPlugin({
     path: "myApp.config",
     value: {
         apiKey: "abcde12345",
