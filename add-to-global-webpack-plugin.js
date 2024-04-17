@@ -47,7 +47,7 @@ class AddToGlobalWebpackPlugin {
                     "AddToGlobalWebpackPlugin",
                     (chunks, callback) => {
                         chunks.forEach((chunk) => {
-                            if (chunk.name === "main") {
+                            if (chunk.runtime && chunk.runtime.has("main")) {
                                 chunk.files.forEach((file) => {
                                     const asset = compilation.assets[file];
                                     let content = asset.source();
