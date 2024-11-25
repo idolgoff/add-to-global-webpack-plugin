@@ -47,11 +47,9 @@ class AddToGlobalWebpackPlugin {
                     "AddToGlobalWebpackPlugin",
                     (chunks, callback) => {
                         chunks.forEach((chunk) => {
-                            if (
-                                chunk.name === "main" ||
-                                chunk.runtime?.has?.("main")
-                            ) {
+                            if (chunk.isOnlyInitial()) {
                                 chunk.files.forEach((file) => {
+                                    if (!file.endsWith(".js")) return;
                                     const asset = compilation.assets[file];
                                     let content = asset.source();
                                     const self = this;

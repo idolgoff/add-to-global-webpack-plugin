@@ -13,7 +13,7 @@ test("AddToGlobalWebpackPlugin test", (done) => {
         entry: "./dummy.js",
         output: {
             path: "/dist",
-            filename: "main.js",
+            filename: "index.js",
         },
         plugins: [
             new AddToGlobalWebpackPlugin({
@@ -32,7 +32,7 @@ test("AddToGlobalWebpackPlugin test", (done) => {
             return done(new Error(stats.toString()));
         }
 
-        const outputCode = fs.readFileSync("/dist/main.js").toString();
+        const outputCode = fs.readFileSync("/dist/index.js").toString();
         expect(outputCode).toContain('const path = "foo.bar.path";');
         expect(outputCode).toContain('const value = "test value";');
 
